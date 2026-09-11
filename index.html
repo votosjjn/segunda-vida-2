@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Segunda Vida | Reutiliza, comparte y transforma</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">♻</div>
+            <div>
+                <h1>Segunda Vida</h1>
+                <span>Reutiliza · Comparte · Transforma</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#explorar">Explorar</a>
+            <a href="#como-funciona">¿Cómo funciona?</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+
+        <button class="btn-publicar" onclick="abrirModal()">
+            + Publicar objeto
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+
+                    <span class="etiqueta">🌱 DALE UNA SEGUNDA OPORTUNIDAD</span>
+
+                    <h2>
+                        Lo que ya no necesitas,
+                        <strong>alguien más puede aprovecharlo.</strong>
+                    </h2>
+
+                    <p>
+                        Segunda Vida es un espacio para intercambiar,
+                        regalar y encontrar objetos que todavía tienen
+                        mucho por ofrecer.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#explorar" class="btn-primary">
+                            Explorar objetos
+                        </a>
+
+                        <button class="btn-secondary" onclick="abrirModal()">
+                            Publicar un objeto
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+
+                    <div class="plant-card">
+                        <div class="plant-icon">🌱</div>
+
+                        <div>
+                            <strong>Una nueva oportunidad</strong>
+                            <p>para las cosas que aún sirven.</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-one">
+                        📚 Libros
+                    </div>
+
+                    <div class="floating-card card-two">
+                        👕 Ropa
+                    </div>
+
+                    <div class="floating-card card-three">
+                        🎮 Juegos
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORÍAS
+        ========================== -->
+        <section class="categories">
+
+            <div class="section-title">
+
+                <span>EXPLORA</span>
+
+                <h2>Encuentra algo que puedas aprovechar</h2>
+
+                <p>
+                    Explora diferentes categorías y descubre objetos
+                    que pueden tener una nueva historia contigo.
+                </p>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <button class="category-card" onclick="filtrarCategoria('Todos')">
+                    <div class="category-icon">✨</div>
+                    <h3>Todos</h3>
+                    <p>Ver todo</p>
+                </button>
+
+                <button class="category-card" onclick="filtrarCategoria('Ropa')">
+                    <div class="category-icon">👕</div>
+                    <h3>Ropa</h3>
+                    <p>Prendas y accesorios</p>
+                </button>
+
+                <button class="category-card" onclick="filtrarCategoria('Libros')">
+                    <div class="category-icon">📚</div>
+                    <h3>Libros</h3>
+                    <p>Historias que continúan</p>
+                </button>
+
+                <button class="category-card" onclick="filtrarCategoria('Tecnología')">
+                    <div class="category-icon">💻</div>
+                    <h3>Tecnología</h3>
+                    <p>Dispositivos y accesorios</p>
+                </button>
+
+                <button class="category-card" onclick="filtrarCategoria('Hogar')">
+                    <div class="category-icon">🏠</div>
+                    <h3>Hogar</h3>
+                    <p>Objetos para tu espacio</p>
+                </button>
+
+                <button class="category-card" onclick="filtrarCategoria('Otros')">
+                    <div class="category-icon">📦</div>
+                    <h3>Otros</h3>
+                    <p>Mucho más por descubrir</p>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EXPLORAR
+        ========================== -->
+        <section class="explore" id="explorar">
+
+            <div class="explore-header">
+
+                <div>
+
+                    <span class="section-label">OBJETOS DISPONIBLES</span>
+
+                    <h2>Descubre nuevas oportunidades</h2>
+
+                </div>
+
+                <div class="search-box">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="text"
+                        id="buscador"
+                        placeholder="Buscar objetos..."
+                        oninput="buscarObjetos()"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-buttons">
+
+                <button class="filter active" onclick="filtrarCategoria('Todos')">
+                    Todos
+                </button>
+
+                <button class="filter" onclick="filtrarCategoria('Ropa')">
+                    Ropa
+                </button>
+
+                <button class="filter" onclick="filtrarCategoria('Libros')">
+                    Libros
+                </button>
+
+                <button class="filter" onclick="filtrarCategoria('Tecnología')">
+                    Tecnología
+                </button>
+
+                <button class="filter" onclick="filtrarCategoria('Hogar')">
+                    Hogar
+                </button>
+
+                <button class="filter" onclick="filtrarCategoria('Otros')">
+                    Otros
+                </button>
+
+            </div>
+
+
+            <div class="products-grid" id="productos">
+
+                <!-- Producto 1 -->
+                <article class="product-card"
+                    data-categoria="Tecnología"
+                    data-nombre="Audífonos inalámbricos">
+
+                    <div class="product-image tech">
+                        🎧
+                        <span class="condition">Buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">TECNOLOGÍA</span>
+
+                        <h3>Audífonos inalámbricos</h3>
+
+                        <p>
+                            Funcionan correctamente y todavía tienen
+                            mucho tiempo de uso.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Audífonos inalámbricos')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Producto 2 -->
+                <article class="product-card"
+                    data-categoria="Libros"
+                    data-nombre="Colección de libros">
+
+                    <div class="product-image books">
+                        📚
+                        <span class="condition">Buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">LIBROS</span>
+
+                        <h3>Colección de libros</h3>
+
+                        <p>
+                            Varios libros que buscan un nuevo lector
+                            que pueda disfrutarlos.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Colección de libros')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Producto 3 -->
+                <article class="product-card"
+                    data-categoria="Ropa"
+                    data-nombre="Chaqueta juvenil">
+
+                    <div class="product-image clothes">
+                        🧥
+                        <span class="condition">Muy buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">ROPA</span>
+
+                        <h3>Chaqueta juvenil</h3>
+
+                        <p>
+                            Chaqueta poco usada y en buenas condiciones.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Chaqueta juvenil')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Producto 4 -->
+                <article class="product-card"
+                    data-categoria="Hogar"
+                    data-nombre="Lámpara de escritorio">
+
+                    <div class="product-image home">
+                        💡
+                        <span class="condition">Buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">HOGAR</span>
+
+                        <h3>Lámpara de escritorio</h3>
+
+                        <p>
+                            Ideal para estudiar, leer o trabajar.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Lámpara de escritorio')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Producto 5 -->
+                <article class="product-card"
+                    data-categoria="Otros"
+                    data-nombre="Mochila">
+
+                    <div class="product-image other">
+                        🎒
+                        <span class="condition">Buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">OTROS</span>
+
+                        <h3>Mochila</h3>
+
+                        <p>
+                            Mochila resistente para colegio o viajes.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Mochila')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Producto 6 -->
+                <article class="product-card"
+                    data-categoria="Tecnología"
+                    data-nombre="Teclado mecánico">
+
+                    <div class="product-image keyboard">
+                        ⌨️
+                        <span class="condition">Buen estado</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-category">TECNOLOGÍA</span>
+
+                        <h3>Teclado mecánico</h3>
+
+                        <p>
+                            Teclado funcional disponible para intercambio.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <span class="location">📍 Machetá</span>
+
+                            <button onclick="verProducto('Teclado mecánico')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div id="sin-resultados" class="sin-resultados">
+
+                <div>🔎</div>
+
+                <h3>No encontramos objetos</h3>
+
+                <p>
+                    Intenta buscar con otro nombre o categoría.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CÓMO FUNCIONA
+        ========================== -->
+        <section class="how" id="como-funciona">
+
+            <div class="section-title">
+
+                <span>ASÍ DE FÁCIL</span>
+
+                <h2>¿Cómo funciona Segunda Vida?</h2>
+
+                <p>
+                    Darle una nueva oportunidad a un objeto puede ser
+                    mucho más sencillo de lo que imaginas.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">01</div>
+
+                    <div class="step-icon">📦</div>
+
+                    <h3>Publica</h3>
+
+                    <p>
+                        Comparte información sobre el objeto que
+                        ya no utilizas.
+                    </p>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step">
+
+                    <div class="step-number">02</div>
+
+                    <div class="step-icon">🔎</div>
+
+                    <h3>Encuentra</h3>
+
+                    <p>
+                        Explora publicaciones y encuentra algo
+                        que te pueda servir.
+                    </p>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step">
+
+                    <div class="step-number">03</div>
+
+                    <div class="step-icon">🤝</div>
+
+                    <h3>Conecta</h3>
+
+                    <p>
+                        Ponte de acuerdo con la persona y dale
+                        una segunda vida al objeto.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOSOTROS
+        ========================== -->
+        <section class="about" id="nosotros">
+
+            <div class="about-content">
+
+                <div class="about-icon">
+                    ♻
+                </div>
+
+                <div>
+
+                    <span class="section-label">NUESTRA IDEA</span>
+
+                    <h2>Menos desperdicio, más oportunidades.</h2>
+
+                    <p>
+                        Segunda Vida nace con una idea sencilla:
+                        muchos objetos que dejamos de utilizar todavía
+                        pueden ser útiles para otras personas.
+                    </p>
+
+                    <p>
+                        Queremos fomentar la reutilización, el intercambio
+                        y el consumo responsable mediante una plataforma
+                        sencilla para conectar personas y objetos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+
+                    <div class="logo-icon">♻</div>
+
+                    <div>
+                        <h1>Segunda Vida</h1>
+                        <span>Reutiliza · Comparte · Transforma</span>
+                    </div>
+
+                </div>
+
+                <p>
+                    Una nueva oportunidad para los objetos
+                    que todavía tienen mucho por ofrecer.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Explorar</h3>
+
+                <a href="#explorar">Objetos</a>
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#nosotros">Nosotros</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Participa</h3>
+
+                <a href="#" onclick="abrirModal(); return false;">
+                    Publicar objeto
+                </a>
+
+                <a href="#explorar">
+                    Buscar objetos
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Segunda Vida. Todos los derechos reservados.
+            </p>
+
+            <span>
+                ♻ Hecho para reutilizar mejor.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MODAL PUBLICAR
+    ========================== -->
+    <div class="modal-overlay" id="modal">
+
+        <div class="modal">
+
+            <button class="close-modal" onclick="cerrarModal()">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                📦
+            </div>
+
+            <h2>Publica un objeto</h2>
+
+            <p>
+                Cuéntanos qué objeto quieres darle una segunda vida.
+            </p>
+
+
+            <form id="form-publicar" onsubmit="publicarObjeto(event)">
+
+                <label for="nombreObjeto">
+                    Nombre del objeto
+                </label>
+
+                <input
+                    type="text"
+                    id="nombreObjeto"
+                    placeholder="Ej. Bicicleta"
+                    required
+                >
+
+
+                <label for="categoriaObjeto">
+                    Categoría
+                </label>
+
+                <select id="categoriaObjeto" required>
+
+                    <option value="">Selecciona una categoría</option>
+
+                    <option value="Ropa">Ropa</option>
+                    <option value="Libros">Libros</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Otros">Otros</option>
+
+                </select>
+
+
+                <label for="estadoObjeto">
+                    Estado
+                </label>
+
+                <select id="estadoObjeto" required>
+
+                    <option value="">Selecciona el estado</option>
+
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Muy buen estado">
+                        Muy buen estado
+                    </option>
+                    <option value="Buen estado">
+                        Buen estado
+                    </option>
+                    <option value="Usado">
+                        Usado
+                    </option>
+
+                </select>
+
+
+                <label for="descripcionObjeto">
+                    Descripción
+                </label>
+
+                <textarea
+                    id="descripcionObjeto"
+                    placeholder="Describe brevemente el objeto..."
+                    required
+                ></textarea>
+
+
+                <label for="ubicacionObjeto">
+                    Ubicación
+                </label>
+
+                <input
+                    type="text"
+                    id="ubicacionObjeto"
+                    placeholder="Ej. Machetá"
+                    required
+                >
+
+
+                <button type="submit" class="submit-btn">
+                    Publicar objeto
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL INFORMACIÓN
+    ========================== -->
+    <div class="modal-overlay" id="product-modal">
+
+        <div class="modal product-modal">
+
+            <button class="close-modal" onclick="cerrarProducto()">
+                ×
+            </button>
+
+            <div class="big-product-icon" id="product-icon">
+                📦
+            </div>
+
+            <span class="product-category" id="product-category">
+                CATEGORÍA
+            </span>
+
+            <h2 id="product-title">
+                Producto
+            </h2>
+
+            <p id="product-description">
+                Descripción del producto.
+            </p>
+
+            <div class="detail-box">
+
+                <div>
+                    <span>Estado</span>
+                    <strong id="product-condition">
+                        Buen estado
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Ubicación</span>
+                    <strong id="product-location">
+                        📍 Machetá
+                    </strong>
+                </div>
+
+            </div>
+
+            <button class="contact-btn" onclick="contactar()">
+                🤝 Me interesa
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <p id="toast-message">Acción realizada</p>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
